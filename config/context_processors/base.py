@@ -1,4 +1,4 @@
-from _utils.utils import CATEGORY_LIST
+from _utils.request import CATEGORY_LIST
 from config.config import SITE_TITLE
 
 

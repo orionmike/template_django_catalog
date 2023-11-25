@@ -1,7 +1,7 @@
 
 from django.shortcuts import get_object_or_404, render
 
-from config.settings import PAGINATE_BY
+from config.config import PAGINATE_BY
 from _utils.utils import get_foto_list, get_pagination
 
 from .models import Product, ProductCategory

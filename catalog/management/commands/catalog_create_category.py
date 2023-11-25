@@ -1,5 +1,4 @@
 
-
 from django.core.management.base import BaseCommand
 from faker import Faker
 from catalog.models import *
@@ -12,18 +11,18 @@ class Command(BaseCommand):
 
         ProductCategory.objects.all().delete()
 
-        # fake = Faker(['ru_RU'])
-
-        cat_name_list = ['Кошельки', 'Сумки', 'Ремни', 'Обложки для документов', 'Кардхолдеры']
+        fake = Faker()
 
         count = 0
 
-        for cat_name in cat_name_list:
+        for _ in range(10):
+
+            ind = str(count+1).zfill(2)
 
             ProductCategory.objects.create(
-                title=cat_name,
+                title=f'Category-{ind}'
             )
 
             count += 1
 
-        print(f'ProductCategory genereited: {count}')
+        print(f'ProductCategory created: {count}')

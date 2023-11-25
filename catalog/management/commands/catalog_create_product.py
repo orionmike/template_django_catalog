@@ -1,10 +1,7 @@
 
-from pathlib import Path
 from django.core.management.base import BaseCommand
 from faker import Faker
 from catalog.models import ProductCategory, Product
-from filebrowser.fields import FileObject
-
 from faker.providers import *
 
 import random
@@ -26,14 +23,10 @@ class Command(BaseCommand):
 
         for index in range(50):
 
-            # t = tag_list[random.randint(0, len(tag_list))]
-
             random_category = random.sample(cat_list_id, 1)
-            # print(f'random_category: {random_category}')
 
             ind = str(index + 1).zfill(2)
-            image = FileObject(f'catalog/product-{ind}/product-{ind}.webp')
-            # image.parh =
+            # image = FileObject(f'catalog/product-{ind}/product-{ind}.webp')
 
             product = Product.objects.create(
                 title=f'Товар {ind}',
@@ -41,9 +34,9 @@ class Command(BaseCommand):
                 preview_text=fake.paragraph(nb_sentences=2),
                 full_text=fake.paragraph(nb_sentences=6),
                 price=random.randint(2000, 10000),
-                image=image
+                # image=image
             )
             product.save()
             count += 1
 
-        print(f'Product list genereited: {count}')
+        print(f'Product list created: {count}')
