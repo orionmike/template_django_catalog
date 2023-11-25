@@ -43,6 +43,8 @@ class ProductCategory(MPTTModel):
     class MPTTMeta:
         db_table = "catalog_category"
         order_insertion_by = ['title']
+
+    class Meta:
         verbose_name = "Каталог: Категория"
         verbose_name_plural = "Каталог: Категории"
 
