@@ -1,0 +1,13 @@
+<div>
+    <div class="uk-card uk-card-default">
+        <div class="image-block">
+            <a class="" href="{{ p.get_url }}">
+                <img class="uk-width-1-1" src="{{ p.image.url }}" alt="{{ t.title }}" uk-img>
+            </a>
+        </div>
+        <div class="uk-margin uk-padding-small">
+            <h2 class="uk-margin-remove"><a href="{{ p.get_url }}">{{ p.title }}</a></h2>
+            <p class="uk-h4">{{ p.price }} руб.</p>
+        </div>
+    </div>
+</div>

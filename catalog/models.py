@@ -25,6 +25,9 @@ class ProductCategory(MPTTModel):
 
     order = models.IntegerField(blank=True, default=100)
 
+    date_create = models.DateTimeField(auto_now_add=True)
+    date_update = models.DateTimeField(auto_now_add=True)
+
     def save(self, *args, **kwargs):
         self.slug = get_slug(self.title)
         self.search = f"{self.title}"
@@ -38,7 +41,7 @@ class ProductCategory(MPTTModel):
     #     return Product.objects.filter(category_id=self.pk, is_publish=True)
 
     def get_url(self):
-        return reverse("cat_category_detail", kwargs={"slug": self.slug})
+        return reverse("category_detail", kwargs={"slug": self.slug})
 
     class MPTTMeta:
         db_table = "catalog_category"
@@ -66,6 +69,9 @@ class Product(models.Model):
     full_text = models.TextField(blank=True, null=True)
 
     search = models.TextField(blank=True, null=True)
+
+    date_create = models.DateTimeField(auto_now_add=True)
+    date_update = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f"{self.title}"

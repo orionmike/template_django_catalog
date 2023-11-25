@@ -1,0 +1,54 @@
+$trans: 0.1s;
+
+
+body {
+
+    transition: $trans all;
+    font-family: Helvetica, Arial, sans-serif;
+
+    @media screen and (min-width: 1600px) {
+        font-size: 110%;
+    }
+
+    @media screen and (min-width: 2000px) {
+        font-size: 115%;
+    }
+
+    @media screen and (min-width: 2400px) {
+        font-size: 125%;
+    }
+
+    @media screen and (min-width: 2800px) {
+        font-size: 140%;
+    }
+}
+
+
+.uk-container-expand {
+    transition: $trans;
+
+    @media screen and (min-width: 1200px) {
+        padding-left: 5% !important;
+        padding-right: 5% !important;
+    }
+
+    @media screen and (min-width: 1600px) {
+        padding-left: 10% !important;
+        padding-right: 10% !important;
+    }
+
+    @media screen and (min-width: 1800x) {
+        padding-left: 15% !important;
+        padding-right: 15% !important;
+    }
+
+    @media screen and (min-width: 3841px) {
+        padding-left: 15% !important;
+        padding-right: 15% !important;
+    }
+
+    @media screen and (min-width: 5121px) {
+        padding-left: 20% !important;
+        padding-right: 20% !important;
+    }
+}
