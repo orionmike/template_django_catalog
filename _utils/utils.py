@@ -1,9 +1,12 @@
 from pathlib import Path
-from django.core.paginator import Paginator
 
+from django.core.paginator import Paginator
 from slugify import slugify
 
+from catalog.models import ProductCategory
 from config.settings import BASE_DIR
+
+CATEGORY_LIST = ProductCategory.objects.filter(is_publish=True).order_by('title')
 
 
 def get_slug(line_string: str) -> str:
