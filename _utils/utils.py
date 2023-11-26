@@ -8,7 +8,7 @@ from config.settings import BASE_DIR
 
 def get_slug(line_string: str) -> str:
     line_string = line_string.replace('й', 'j')
-    result = slugify(line_string)  # allow_unicode = True
+    result = slugify(line_string)
     result = result.replace('ja', 'ya')
     result = result.replace('ia', 'ya')
     print(result)
