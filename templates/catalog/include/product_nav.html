@@ -1,0 +1,33 @@
+
+<div class="bottom-project-nav uk-width-1-1 uk-margin">
+    <div class="work-navigation uk-margin-large uk-child-width-1-2@m" uk-grid uk-height-match="target: > div > .uk-card">
+        {% if product_next is not None %}
+        <div>
+            <a class=" card-work" href="{{ product_next.get_url }}">
+                <div class="uk-card uk-card-default">
+                    <div class="card-header">
+                        <img class="uk-width-1-1" data-src="/media/{{ product_next.image }}" alt="{{ product_next.title }}" uk-img>
+                    </div>
+                    <div class="uk-card-body">
+                        <h4>Назад: {{ product_next.title }}</h4>
+                    </div>
+                </div>
+            </a>
+        </div>
+        {% endif %}
+        {% if product_previos is not None %}
+        <div>
+            <a class="card-work" href="{{ product_previos.get_url }}">
+                <div class="uk-card uk-card-default">
+                    <div class="card-header">
+                        <img class="uk-width-1-1" data-src="/media/{{ product_previos.image }}" alt="{{ product_previos.title }}" uk-img>
+                    </div>
+                    <div class="uk-card-body">
+                        <h4>Вперед: {{ product_previos.title }}</h4>
+                    </div>
+                </div>
+            </a>
+        </div>
+        {% endif %}
+    </div>
+</div>
