@@ -2,6 +2,7 @@ from pathlib import Path
 
 from django.core.paginator import Paginator
 from slugify import slugify
+from config.config import DIR_PHOTO
 
 from config.settings import BASE_DIR
 
@@ -40,14 +41,16 @@ def get_pagination(request, object_list, paginate_by) -> tuple:
 def get_foto_list(obj) -> list:
 
     image_dir = Path(str(obj.image)).parent
-    abs_work_dir = BASE_DIR / 'media' / image_dir / 'foto'
+    abs_work_dir = BASE_DIR / 'media' / image_dir / DIR_PHOTO
 
     image_list = []
     image_path_list = list(abs_work_dir.glob('**/*.*'))
     for img in image_path_list:
         if img.suffix in ['.webp', '.jpg']:
-            image_list.append(f'/media/{image_dir.parent.name}/{image_dir.name}/foto/{img.name}')
+            image_list.append(f'/media/catalog/product/{image_dir.parent.name}/{image_dir.name}/foto/{img.name}')
 
     image_list.sort()
+
+    print(image_list)
 
     return image_list
